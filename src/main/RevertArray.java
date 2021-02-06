@@ -19,5 +19,7 @@ public class RevertArray {
             array[j] = temp;
         }
         System.out.println(java.util.Arrays.toString(array));
+
+
     }
 }
