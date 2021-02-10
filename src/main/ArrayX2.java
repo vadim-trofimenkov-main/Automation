@@ -17,7 +17,7 @@ public class ArrayX2 {
            if(l%3 == 0  || l%7 == 0){
                l = 0;
            }
-            System.out.print(" "+ l);
+            System.out.print(l + " ");
         }
     }
 }

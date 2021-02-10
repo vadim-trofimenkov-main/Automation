@@ -21,7 +21,7 @@ public class Task3 {
             System.out.println("PLease enter digital value:");
             arr[i] = scanner.nextInt();
         }
-        System.out.println(Arrays.toString(arr));
+        System.out.println("Array" + Arrays.toString(arr));
         int sum = 0;
         for (int r :arr) {
             sum += r;
