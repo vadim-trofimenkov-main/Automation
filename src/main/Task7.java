@@ -12,8 +12,8 @@ package main;
 import java.util.Arrays;
 import java.util.Scanner;
 public class Task7 {
-    static int[] arr;
-    static int t;
+    static int[] arr = new int[10];
+    static int t = arr.length;
     static double sum;
     static double avg;
 
