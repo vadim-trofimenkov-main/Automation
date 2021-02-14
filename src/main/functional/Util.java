@@ -1,4 +1,4 @@
-package main;
+package main.functional;
 
 public class Util {
 
@@ -9,6 +9,4 @@ public class Util {
         }
     return sum;
     }
-
-
 }

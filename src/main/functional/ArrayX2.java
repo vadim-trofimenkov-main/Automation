@@ -3,7 +3,7 @@
 //2. Заполнить элементы массива индексами элемента в квадрате (обычный цикл for);
 //3. Вывести на консоль все элементы массива, при этом те из них, которые делятся на 3 или на 7, заменить на ноль, используя цикл for(each).
 
-package main;
+package main.functional;
 import java.util.Arrays;
 public class ArrayX2 {
     public static void main ( String[] args) {

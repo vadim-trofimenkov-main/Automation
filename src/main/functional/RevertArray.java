@@ -1,4 +1,4 @@
-package main;
+package main.functional;
 
 public class RevertArray {
     public static void main(String[] args) {

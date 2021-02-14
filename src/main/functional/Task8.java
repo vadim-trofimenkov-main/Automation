@@ -1,4 +1,4 @@
-package main;
+package main.functional;
 
 import java.util.Scanner;
 

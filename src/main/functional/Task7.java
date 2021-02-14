@@ -1,4 +1,4 @@
-package main;
+package main.functional;
 
 /* Задача 7
         Решить задачу 3, выделив в чистые методы:
