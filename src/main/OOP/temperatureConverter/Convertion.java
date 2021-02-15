@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Convertion {
     public static void main(String[] args) {
-        KelvinConverter kelvinConverter = new KelvinConverter();
-        FahrenheitConverter fahrenheitConverter = new FahrenheitConverter();
+        Converter kelvinConverter = new KelvinConverter();
+        Converter fahrenheitConverter = new FahrenheitConverter();
         Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
         System.out.println("Пожалуйста введите температуру в Цельсиях");
         double temperature = scanner.nextDouble();

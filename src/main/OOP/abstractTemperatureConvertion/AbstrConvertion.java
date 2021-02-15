@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class AbstrConvertion {
     public static void main(String[] args) {
-        AbstrFahrenheitConverter abstrFahrenheitConverter = new AbstrFahrenheitConverter();
+        AbstrConverter abstrFahrenheitConverter = new AbstrFahrenheitConverter();
         AbstrKelvinConverter abstrKelvinConverter = new AbstrKelvinConverter();
         Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
         System.out.println("Пожалуйста введите температуру в Цельсиях");

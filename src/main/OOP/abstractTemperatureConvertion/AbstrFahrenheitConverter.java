@@ -1,6 +1,6 @@
 package main.OOP.abstractTemperatureConvertion;
 
-public class AbstrFahrenheitConverter extends AbstrConverter{
+public class AbstrFahrenheitConverter extends AbstrConverter {
 
     @Override
     double convert(double d) {

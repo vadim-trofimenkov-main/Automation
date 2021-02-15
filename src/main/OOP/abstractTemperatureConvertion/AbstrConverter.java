@@ -3,5 +3,5 @@ package main.OOP.abstractTemperatureConvertion;
 //        Решить Задачу 13 при помощи абстрактных классов.
 
 public abstract class AbstrConverter {
-    abstract  double convert(double d);
-    }
+    abstract double convert(double d);
+}
