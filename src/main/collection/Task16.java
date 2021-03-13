@@ -27,32 +27,63 @@ import java.util.ArrayList;
 //т. оставить в исходной коллекции все элементы, кроме элементов новой коллекции, не создавая собственных методов;
 //у. вывести на консоль конечный состав исходной коллекции.
 public class Task16 {
-    private static ArrayList<Double> arrayList = new ArrayList<>();
-    private static int size;
+
 
     public static void main(String[] args) {
-
+        ArrayList<Double> arrayList = new ArrayList<>();
+        int size;
         random(arrayList);
         size = arrayList.size();
         printArrayList(arrayList);
+        System.out.println("Size: " + size);
 
         double average = average(arrayList);
         System.out.println("Average value: " + average);
         multiplyTwo(arrayList);
+        System.out.println("............Multiplying 2 all values less than average...........");
         printArrayList(arrayList);      // д
-
-
+        sortArray(arrayList);           //e
+        System.out.println("............Sorting Collection...........");
+        printArrayList(arrayList);
+        System.out.println("............Finding average...........");
+        average = average(arrayList);            //з
+        System.out.println("Average value: " + average);
+        System.out.println("............Deleting all values less than average...........");
+        deleteAllLessAverage(arrayList);   //и
+        printArrayList(arrayList);
+        System.out.println("............Finding average...........");
+        average = average(arrayList);            //л
+        System.out.println("Average value: " + average);
+        addElement(arrayList);      //м
+        System.out.println("............Adding 1000 value after element less than average...........");
+        printArrayList(arrayList);
+        size = arrayList.size();
+        System.out.println("Size: " + size);   //о
+        System.out.println("............Creating new Collection with average elements from Initial Collection...........");
+        ArrayList<Double> newArrayList = new ArrayList<>();
+        addAverageValues(newArrayList, arrayList);     //р
+        System.out.println("Initial Collection: " + arrayList);
+        System.out.println("New Collection: " + newArrayList);
+        System.out.println("............Deleting elements of Initial Collection if they equal to elements of New Collection...........");
+        for (int i = 0; i < newArrayList.size(); i++) {
+            Double element = newArrayList.get(i);
+            while (arrayList.contains(element)){
+                arrayList.remove(element);
+            }
+        }
+        System.out.println("Initial Collection: " + arrayList);
+        System.out.println("New Collection: " + newArrayList);
     }
 
     public static void random(ArrayList<Double> arrayList) {
         double l;
-        int r;
+        //   int r;
         for (int i = 0; i < 20; i++) {
             l = Math.random();           // рандом возвращает дабл
             //   r = (int) Math.round(l);    раунд возвращает лонг, силой преобразуем к инту, зная, что числа будут 0 или 2
-            arrayList.add(l);
+            double roundOff = (double) Math.round(l * 100) / 100;     // округляет до 2 символов после запятой
+            arrayList.add(roundOff);
         }
-
     }
 
     public static void printArrayList(ArrayList<Double> arrayList) {
@@ -60,11 +91,14 @@ public class Task16 {
     }
 
     public static double average(ArrayList<Double> arrayList) {
+        int size = arrayList.size();
         double sum = sum(arrayList);
-        return sum / size;
+        double average = sum / size;
+        return (double) Math.round(average * 100) / 100;
     }
 
     public static double sum(ArrayList<Double> arrayList) {
+        int size = arrayList.size();
         double sum = 0;
         for (int i = 0; i < size; i++) {
             sum += arrayList.get(i);
@@ -74,6 +108,7 @@ public class Task16 {
 
     public static void multiplyTwo(ArrayList<Double> arrayList) {
         double avr = average(arrayList);
+        int size = arrayList.size();
         for (int i = 0; i < size; i++) {
             double element = arrayList.get(i);
             if (element < avr) {
@@ -83,5 +118,49 @@ public class Task16 {
         }
     }
 
+    public static void sortArray(ArrayList<Double> arrayList) {
+        int size = arrayList.size();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - 1; j++) {
+                double previous = arrayList.get(j);
+                double next = arrayList.get(j + 1);
+                if (previous > next) {
+                    double temp = previous;
+                    arrayList.set(j, next);
+                    arrayList.set(j + 1, temp);
+                }
+            }
+        }
+    }
 
+    public static void deleteAllLessAverage(ArrayList<Double> arrayList) {
+        double avr = average(arrayList);
+        for (int i = 0; i < arrayList.size(); i++) {
+            double element = arrayList.get(i);
+            if (element < avr) {
+                arrayList.remove(element);
+                i--;
+            }
+        }
+    }
+
+    public static void addElement(ArrayList<Double> arrayList) {
+        double avr = average(arrayList);
+        for (int i = 0; i < arrayList.size(); i++) {
+            double element = arrayList.get(i);
+            if (element < avr) {
+                arrayList.add(i + 1, 1000.00);
+                i++;
+            }
+        }
+    }
+
+    public static void addAverageValues(ArrayList<Double> newArrayList, ArrayList<Double> arrayList) {
+        int averageIndex = arrayList.size() / 2;
+        newArrayList.add(arrayList.get(averageIndex - 1));
+        newArrayList.add(arrayList.get(averageIndex));
+        if (arrayList.size() % 2 != 0) {
+            newArrayList.add(arrayList.get(averageIndex + 1));
+        }
+    }
 }
