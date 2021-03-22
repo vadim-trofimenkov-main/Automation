@@ -1,4 +1,4 @@
-package main.trofimenkov.javapart.lyambda;
+package main.trofimenkov.javapart.lambda;
 
 //Задача 59. Лямбда-функции. Инструменты
 //Нужно:
